@@ -1,0 +1,43 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [ {
+        "source" : "**",
+          "headers" : [ {
+              "key" : "Cache-Control",
+              "value" : "max-age=31536000"
+          }]
+    }, {
+    "source" : "service-worker.js",
+          "headers" : [ {
+              "key" : "Cache-Control",
+              "value" : "max-age=0"
+          }]
+    }, {
+    "source" : "firebase-messaging-sw.js",
+          "headers" : [ {
+              "key" : "Cache-Control",
+              "value" : "max-age=0"
+          }]
+    },
+      {
+         "source": "/",
+        "headers": [{"key": "Link", "value": "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css>;rel=preload;as=style"}]
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "react_starter_with_create_react_app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.2.0",
+    "halogen": "^0.2.0",
+    "localforage": "^1.5.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-helmet": "^5.1.3",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "next",
+    "react-router-transition": "^0.1.1",
+    "react-scripts": "1.0.11",
+    "redux": "^3.7.2",
+    "redux-action-buffer": "^1.1.0",
+    "redux-form": "^7.0.3",
+    "redux-persist": "^4.8.3",
+    "redux-persist-migrate": "^4.1.0",
+    "redux-persist-transform-filter": "^0.0.15",
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.71.4",
+    "styled-components": "^2.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start && react-snapshot",
+    "build": "react-scripts build && react-snapshot",
+    "fix": "eslint --fix src/. || exit 0",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.4.1",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-prettier": "^2.2.0",
+    "eslint-plugin-react": "^7.2.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier": "^1.5.3",
+    "prettier-eslint": "^6.4.2",
+    "react-snapshot": "next"
+  },
+  "reactSnapshot": {
+    "include": [
+      "/",
+      "/aboutUs",
+      "/faq"
+    ],
+    "exclude": [],
+    "snapshotDelay": 300
+  }
+}

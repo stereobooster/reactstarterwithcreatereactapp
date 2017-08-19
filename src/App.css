@@ -1,0 +1,22 @@
+@import 'semantic/dist/components/button.min.css';
+@import 'semantic/dist/components/divider.min.css';
+@import 'semantic/dist/components/form.min.css';
+@import 'semantic/dist/components/icon.min.css';
+@import 'semantic/dist/components/input.min.css';
+@import 'semantic/dist/components/modal.min.css';
+@import 'semantic/dist/components/popup.min.css';
+
+/* Add css files individually for the only used semantic components, smaller css  */
+
+/* checkout https://semantic-ui.com/introduction/build-tools.html for building css files */
+
+html {
+  box-sizing: border-box !important;
+}
+*, *:before, *:after {
+  box-sizing: inherit !important;
+}
+
+body {
+  overflow-y: hidden;
+}
