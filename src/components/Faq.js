@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
+import {Helmet} from 'react-helmet'
 
 export default class Faq extends Component {
   static propTypes = {}
@@ -12,7 +13,12 @@ export default class Faq extends Component {
   componentDidMount() {}
 
   render() {
-    return <Div>Faq</Div>
+    return (
+      <Div>
+      <Helmet title= 'Faq'/>
+      Faq
+      </Div>
+    )
   }
 }
 

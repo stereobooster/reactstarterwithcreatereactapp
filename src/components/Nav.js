@@ -14,10 +14,10 @@ export default function Nav(props) {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to='/aboutUs'> About US</StyledNavLink>
+          <StyledNavLink to='/aboutUs/'> About US</StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to='/faq'> FAQ</StyledNavLink>
+          <StyledNavLink to='/faq/'> FAQ</StyledNavLink>
         </li>
       </StyledUl>
       {props.authed

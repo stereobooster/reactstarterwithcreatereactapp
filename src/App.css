@@ -1,14 +1,37 @@
-@import 'semantic/dist/components/button.min.css';
-@import 'semantic/dist/components/divider.min.css';
-@import 'semantic/dist/components/form.min.css';
-@import 'semantic/dist/components/icon.min.css';
-@import 'semantic/dist/components/input.min.css';
-@import 'semantic/dist/components/modal.min.css';
-@import 'semantic/dist/components/popup.min.css';
-
+/* /////////////////////////////////////////// */
 /* Add css files individually for the only used semantic components, smaller css  */
+/* @import 'semantic/dist/components/button.min.css'; */
+/* @import 'semantic/dist/components/divider.min.css'; */
+/* @import 'semantic/dist/components/form.min.css'; */
+@import 'semantic/dist/components/icon.min.css';  /* Leaving this for now beacuse it import fonts which I need to figure out */
+/* @import 'semantic/dist/components/input.min.css'; */
+/* @import 'semantic/dist/components/modal.min.css'; */
+/* @import 'semantic/dist/components/popup.min.css'; */
 
-/* checkout https://semantic-ui.com/introduction/build-tools.html for building css files */
+/* checkout https://semantic-ui.com/introduction/build-tools.html for building css files
+
+/* Another Option is to convert the semantic component css files to JS tagged template literal like so and then import the Js const into the Helmet component: */
+
+/* STEP:1 */
+
+/* const buttonsemanticStyle = `
+.mainClass {
+  color:  #424242;
+}
+
+body {
+  margin:  0;
+}
+`
+export default buttonsemanticStyle */
+
+/* STEP: 2 */
+
+/* Then import the Js templete literal into Helmet as a stylesheet like so: */
+
+/* <Helmet style = {[{type: 'text/css',cssText: buttonsemanticStyle}]} /> */
+
+/* ///////////////////////////////////////// */
 
 html {
   box-sizing: border-box !important;

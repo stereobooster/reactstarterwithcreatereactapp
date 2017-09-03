@@ -6,6 +6,7 @@ import * as ActionCreators from 'redux/modules/authentication'
 import Auth from 'components/Auth'
 import * as reduxFormActionCreators from 'redux-form'
 import {withRouter} from 'react-router-dom'
+import '../App.css'
 
 class AuthContainer extends Component {
   static propTypes = {
@@ -62,7 +63,7 @@ class AuthContainer extends Component {
 
   handlePasswordResetPress = () => {
     const {history} = this.props
-    history.push('/passwordReset')
+    history.push('/passwordReset/')
   }
 
   handleSignOutPress = () => {

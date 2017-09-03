@@ -46,8 +46,11 @@
   "reactSnapshot": {
     "include": [
       "/",
-      "/aboutUs",
-      "/faq"
+      "/aboutUs/",
+      "/faq/",
+      "/signIn/",
+      "/signUp/",
+      "/passwordReset/"
     ],
     "exclude": [],
     "snapshotDelay": 300

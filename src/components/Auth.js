@@ -5,7 +5,7 @@ import Loading from 'components/Loading'
 import ReduxFormTextInput from 'components/ReduxFormTextInput'
 import {Form, Icon, Button, Divider} from 'semantic-ui-react'
 import styled from 'styled-components'
-
+import {Helmet} from 'react-helmet'
 const Values = formValues('email', 'password')(Auth) // passes form fields values as props to Form component
 
 function Auth(props) {
@@ -59,6 +59,7 @@ function Auth(props) {
                     component={ReduxFormTextInput}/>
                 </Div>
               : <Div>
+                   <Helmet title= 'passwordReset'/>
                   <Field
                     name='email'
                     placeholder='email'
@@ -73,9 +74,8 @@ function Auth(props) {
             </StyledError>
             <div>
               <Div3>
-                <Button
+                <StyledSubmitButton
                   basic={true}
-                  style={{marginBottom: '5vh'}}
                   onClick={handleSubmit(onSubmit)}>
                   {route === 'signUp'
                     ? 'Register'
@@ -84,9 +84,10 @@ function Auth(props) {
                       : route === 'passwordReset'
                         ? 'Reset Password'
                         : 'Submit'}{' '}
-                </Button>
+                </StyledSubmitButton>
                 {route === 'signIn' || route === 'signUp'
                   ? <Div3>
+                       <Helmet title= 'Auth'/>
                       <Divider style={{width: '220px'}} horizontal={true}>
                         Or
                       </Divider>
@@ -165,6 +166,11 @@ const StyledError = styled('p')`
   color:tomato;
   font-size:0.85em;
   `
+
+const StyledSubmitButton = styled(Button)`
+  margin-bottom: 5vh !important;
+`
+
 const validate = (values, props) => {
   const error = {}
   error.email = ''

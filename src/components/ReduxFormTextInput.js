@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {Form, Icon, Input} from 'semantic-ui-react'
+import {Form, Input} from 'semantic-ui-react'
 import styled from 'styled-components'
 
 export default class ReduxFormTextInput extends Component {
@@ -26,9 +26,7 @@ export default class ReduxFormTextInput extends Component {
           <label>
             {label || ''}
           </label>
-          <Input
-            icon={icon}
-            iconPosition='left'
+          <input
             type={type ? type : 'text'}
             placeholder={rest.placeholder || ''}
             {...input}/>

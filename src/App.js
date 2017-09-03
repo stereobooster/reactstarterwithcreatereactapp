@@ -17,6 +17,13 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as ActionCreators from 'redux/modules/authentication'
 import './App.css'
+import buttonStyle from 'semantic/dist/components/buttonStyle.js'
+import dividerStyle from 'semantic/dist/components/dividerStyle.js'
+// import iconStyle from 'semantic/dist/components/iconStyle.js'
+import formStyle from 'semantic/dist/components/formStyle.js'
+import inputStyle from 'semantic/dist/components/inputStyle.js'
+import modalStyle from 'semantic/dist/components/modalStyle.js'
+import popupStyle from 'semantic/dist/components/popupStyle.js'
 
 function PrivateRoute({component: Component, authed, emailVerified, ...rest}) {
   return (
@@ -48,8 +55,14 @@ class App extends Component {
     const {authed, emailVerified, authedId, location} = this.props
     return (
       <MainContainer>
-       <Helmet title= 'Home'/>
-        <RouteTransition
+       <Helmet title= 'Home' style={[{type: 'text/css', cssText: buttonStyle},
+       {type: 'text/css', cssText: dividerStyle},
+       {type: 'text/css', cssText: formStyle},
+       // {type: 'text/css', cssText: iconStyle},
+       {type: 'text/css', cssText: inputStyle},
+       {type: 'text/css', cssText: modalStyle},
+       {type: 'text/css', cssText: popupStyle}]}/>
+      <RouteTransition
           pathname={this.props.location.pathname}
           atEnter={{opacity: 0}}
           atLeave={{opacity: 2}}

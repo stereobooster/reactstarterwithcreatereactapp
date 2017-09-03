@@ -27,12 +27,12 @@ class MainContainer extends Component {
 
   handleSignInPress = () => {
     const {history} = this.props
-    history.push('/signIn')
+    history.push('/signIn/')
   }
 
   handleSignUpPress = () => {
     const {history} = this.props
-    history.push('/signUp')
+    history.push('/signUp/')
   }
 
   handleSignOutPress = () => {
