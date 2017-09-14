@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
-import {RouteTransition} from 'react-router-transition'
+import {RouteTransition} from 'react-router-transition/lib/react-router-transition'
 import HomeContainer from 'containers/HomeContainer'
 import SecureHomeContainer from 'containers/SecureHomeContainer'
 import SignInContainer from 'containers/SignInContainer'
@@ -62,7 +62,17 @@ class App extends Component {
        {type: 'text/css', cssText: inputStyle},
        {type: 'text/css', cssText: modalStyle},
        {type: 'text/css', cssText: popupStyle}]}/>
-
+       <RouteTransition
+           pathname={this.props.location.pathname}
+           atEnter={{opacity: 0}}
+          atLeave={{opacity: 2}}
+          atActive={{opacity: 1}}
+          mapStyles={styles => {
+            if (styles.opacity > 1) {
+              return {display: 'none'}
+            }
+            return {opacity: styles.opacity}
+          }}>
           <Switch key={location.key} location={location}>
             <Route exact={true} path='/' component={HomeContainer} />
             <Route exact={true} path='/aboutUs' component={AboutUs} />
@@ -85,6 +95,7 @@ class App extends Component {
             <Route exact={true} path='/faq' component={Faq} />
             <Route render={() => <h2> Oops. Page not found. </h2>} />
           </Switch>
+          </RouteTransition>
       </MainContainer>
     )
   }
@@ -107,21 +118,3 @@ function mapDispatchToProps(dispatch, props) {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
-
-
-// // // For router transtions Wrap the Main Switch in the following code
-// // // However this gives a wierd feel when reloading the static markup from react-snapshot has less than 1 opacity. so for now removed it from code, until fix is found.
-      // <RouteTransition
-      //     pathname={this.props.location.pathname}
-      //     atEnter={{opacity: 0}}
-      //     atLeave={{opacity: 2}}
-      //     atActive={{opacity: 1}}
-      //     mapStyles={styles => {
-      //       if (styles.opacity > 1) {
-      //         return {display: 'none'}
-      //       }
-      //       return {opacity: styles.opacity}
-      //     }}>
-      //     ...
-      //   </RouteTransition>
-
