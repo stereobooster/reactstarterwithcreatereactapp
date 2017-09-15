@@ -30,7 +30,8 @@
     "build": "react-scripts build && react-snapshot",
     "fix": "eslint --fix src/. || exit 0",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s build"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -53,6 +54,6 @@
       "/passwordReset/"
     ],
     "exclude": [],
-    "snapshotDelay": 1300
+    "snapshotDelay": 300
   }
 }
