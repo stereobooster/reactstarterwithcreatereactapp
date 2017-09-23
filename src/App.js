@@ -78,21 +78,15 @@ class App extends Component {
             <Route exact={true} path='/aboutUs' component={AboutUs} />
             <Route exact={true} path='/signIn' component={SignInContainer} />
             <Route exact={true} path='/SignUp' component={SignUpContainer} />
-            <Route
-              exact={true}
-              path='/passwordReset'
-              component={PasswordResetContainer}/>
-            <Route
-              exact={true}
-              path='/verifyEmail'
-              component={VerifyEmailContainer}/>
+            <Route exact={true} path='/faq' component={Faq} />
+            <Route exact={true} path='/passwordReset' component={PasswordResetContainer}/>
+            <Route exact={true} path='/verifyEmail' component={VerifyEmailContainer}/>
             <PrivateRoute
               path='/user/:id'
               authed={authed}
               emailVerified={emailVerified}
               authedId={authedId}
               component={SecureHomeContainer}/>
-            <Route exact={true} path='/faq' component={Faq} />
             <Route render={() => <h2> Oops. Page not found. </h2>} />
           </Switch>
           </RouteTransition>
