@@ -63,7 +63,7 @@ class AuthContainer extends Component {
 
   handlePasswordResetPress = () => {
     const {history} = this.props
-    history.push('/passwordReset/')
+    history.push('/passwordReset')
   }
 
   handleSignOutPress = () => {

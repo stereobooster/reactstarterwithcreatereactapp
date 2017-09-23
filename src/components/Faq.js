@@ -16,7 +16,7 @@ export default class Faq extends Component {
     return (
       <Div>
       <Helmet title= 'Faq'/>
-      Faq
+      FAQ
       </Div>
     )
   }

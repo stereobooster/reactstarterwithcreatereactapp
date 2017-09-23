@@ -27,7 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start && react-snapshot",
-    "build": "react-scripts build && react-snapshot",
+    "build": "react-scripts build && react-snapshot && sw-precache --config=sw-precache-config.js",
+    "serve": "serve --cache 0 build",
     "fix": "eslint --fix src/. || exit 0",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -54,6 +55,6 @@
       "/passwordReset/"
     ],
     "exclude": [],
-    "snapshotDelay": 300
+    "snapshotDelay": 50
   }
 }
