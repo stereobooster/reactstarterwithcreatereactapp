@@ -12,13 +12,20 @@ import * as reducers from 'redux/modules'
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 import localforage from 'localforage'
-
+import { setRehydrateCompleteFlag } from 'redux/modules/authentication'
 // import { LOGGING_OUT } from './redux/modules/authentication'
+
+
+export const history = createHistory()
+export const configureStore = async () => {
+
+return new Promise((resolve, reject) => {
+
+  try {
 
 const rootReducer = combineReducers({...reducers, navigation: routerReducer})
 
 // // Create a history of your choosing (we're using a browser history in this case)
-export const history = createHistory()
 
 // Build the middleware for intercepting and dispatching navigation actions
 const historyMiddleware = routerMiddleware(history)
@@ -56,7 +63,7 @@ const saveSubsetFilterA = createFilter('authentication', [
 
 // // Add the reducer to your store on the `router` key
 // // Also apply our middleware for navigating
-export const store = createStore(
+const store = createStore(
   rootReducer,
   compose(
     migration,
@@ -84,5 +91,13 @@ persistStore(
   },
   () => {
     console.log('rehydration complete')
+    store.dispatch(setRehydrateCompleteFlag())
+    resolve(store)
   }
 )
+} catch (e) {
+  reject(e)
+}
+})
+
+}

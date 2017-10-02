@@ -12,7 +12,6 @@ import {
 } from 'helpers/auth'
 import {replace} from 'react-router-redux'
 import {firebaseAuth} from 'config/constants'
-
 const FETCHING = 'FETCHING'
 const RESET_FETCHING = 'RESET_FETCHING'
 const NOT_AUTHED = 'NOT_AUTHED'
@@ -21,6 +20,7 @@ const LOGIN_ERROR = 'LOGIN_ERROR'
 const RESET_LOGIN_ERROR = 'RESET_LOGIN_ERROR'
 const AUTH_TYPE = 'AUTH_TYPE'
 export const LOGGING_OUT = 'LOGGING_OUT' // so listen to it in index.js to reset entire redux store to intial state all in one go instead of resseting it at each reducer
+export const REHYDRATE_COMPLETE = 'REHYDRATE_COMPLETE'
 
 export function setFetching() {
   return {
@@ -73,6 +73,12 @@ export function setAuthType(authType) {
   return {
     type: AUTH_TYPE,
     authType,
+  }
+}
+
+export function setRehydrateCompleteFlag () {
+  return {
+    type: REHYDRATE_COMPLETE,
   }
 }
 
@@ -387,6 +393,7 @@ const initialState = {
   authError: '',
   authType: '',
   authedUser: initialUserState,
+  rehydrationComplete: false,
 }
 
 const initialUserState = {
@@ -449,6 +456,11 @@ export default function authentication(state = initialState, action) {
       return {
         ...state,
         authType: action.authType,
+      }
+    case REHYDRATE_COMPLETE:
+      return {
+        ...state,
+        rehydrationComplete: true,
       }
     default:
       return state

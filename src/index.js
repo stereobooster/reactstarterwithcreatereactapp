@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {render as snapshotRender} from 'react-snapshot'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import {store, history} from './redux/store'
+import {configureStore, history} from './redux/store'
 import {Provider} from 'react-redux'
 import {ConnectedRouter} from 'react-router-redux'
 // import { persistStore } from 'redux-persist'
@@ -50,7 +50,10 @@ import {ConnectedRouter} from 'react-router-redux'
 //      }
 // }
 
-snapshotRender(
+
+async function init() {
+const store = await configureStore()
+snapshotRender( 
   <Provider store={store}>
     {/* ConnectedRouter will use the store from Provider automatically */}
     <ConnectedRouter history={history}>
@@ -61,3 +64,6 @@ snapshotRender(
 )
 
 registerServiceWorker()
+}
+
+init()

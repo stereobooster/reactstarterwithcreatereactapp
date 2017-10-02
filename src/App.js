@@ -26,6 +26,7 @@ import modalStyle from 'semantic/dist/components/modalStyle.js'
 import popupStyle from 'semantic/dist/components/popupStyle.js'
 
 function PrivateRoute({component: Component, authed, emailVerified, ...rest}) {
+  console.log('PrivateRoute function authed: ', authed)
   return (
     <Route
       {...rest}
@@ -52,9 +53,10 @@ class App extends Component {
     })
   }
   render() {
-    const {authed, emailVerified, authedId, location} = this.props
+    const {authed, emailVerified, authedId, location, rehydrationComplete} = this.props
+    console.log('Render function authed: ', authed)
     return (
-      <MainContainer>
+       <MainContainer>
        <Helmet title= 'Home' style={[{type: 'text/css', cssText: buttonStyle},
        {type: 'text/css', cssText: dividerStyle},
        {type: 'text/css', cssText: formStyle},
@@ -96,7 +98,7 @@ class App extends Component {
 }
 
 function mapStateToProps({authentication}, props) {
-  const {fetching, authed, authedId, authedUser} = authentication
+  const {fetching, authed, authedId, authedUser, rehydrationComplete } = authentication
   const {location} = props
   return {
     fetching,
@@ -104,6 +106,7 @@ function mapStateToProps({authentication}, props) {
     authedId: authedId || null,
     emailVerified: authedUser ? authedUser.info.emailVerified : false,
     location,
+    rehydrationComplete,
   }
 }
 
