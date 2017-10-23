@@ -16,7 +16,7 @@ class SignInContainer extends Component {
     super(props)
     this.state = {}
   }
-  componentDidMount() {
+  componentWillMount() {
     this.props.setAuthType('SignIn')
     this.props.resetLoginError()
   }

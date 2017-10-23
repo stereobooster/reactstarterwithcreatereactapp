@@ -26,6 +26,10 @@ class AuthContainer extends Component {
     this.state = {resetingPassword: false}
   }
 
+  componentWillMount() {
+    this.props.resetLoginError()
+  }
+
   handleSubmitPress = async formData => {
     console.log('Auth Button Clicked: ')
     const {email, password} = formData

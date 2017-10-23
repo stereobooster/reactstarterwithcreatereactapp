@@ -177,12 +177,10 @@ const validate = (values, props) => {
   let ema = values.email
   let pw = values.password
   if (values.email === undefined || values.email === '') {
-  	error.email = 'email is required'
     ema = ''
   }
   if (values.password === undefined || values.password === '') {
     pw = ''
-    error.password = 'password is required'
   }
   if (ema.length < 7 && ema !== '') {
     error.email = 'too short'

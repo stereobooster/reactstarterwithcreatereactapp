@@ -86,6 +86,7 @@ export function handleAuthWithEmailPassword(email, password, type) {
   // console.warn('FETCHING FOR :', type)
   return async dispatch => {
     dispatch(resetLoginError())
+    if(typeof email !== 'undefined' && typeof password !== 'undefined') {
     if (email !== '' && password !== '' && (email.includes('@')) && password.length > 4  && email.length > 6) {
       dispatch(setFetching())
       if (type === 'SignUp') {
@@ -176,9 +177,11 @@ export function handleAuthWithEmailPassword(email, password, type) {
           dispatch(resetFetching())
         }
       }
-    } else {
+    } }
+    else {
       dispatch(notAuthed())
       dispatch(resetFetching())
+      dispatch(loginError('Both email and password are required.'))
     }
   }
 }
@@ -300,6 +303,7 @@ export function handlePasswordReset(email) {
     dispatch(notAuthed())
     // logOut()
     dispatch(resetLoginError())
+    if (typeof email !== 'undefined') {
     if (email !== '' && (email.includes('@') && email.length > 6) ) {
           dispatch(setFetching())
     return sendPasswordResetEmail(email)
@@ -332,8 +336,9 @@ export function handlePasswordReset(email) {
         }
         return false
       })
-    } else {
+    } }else {
       dispatch(resetFetching())
+      dispatch(loginError('Email is required.'))
     }
 
   }
