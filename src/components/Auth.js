@@ -36,94 +36,94 @@ function Auth(props) {
 
   return (
     <div>
-      {props.fetching
-        ? <Loading />
-        : <Div>
-            {route !== 'passwordReset'
-              ? <Div>
-                  <Field
-                    name='email'
-                    placeholder='email'
-                    style={{}}
-                    size='large'
-                    type='email'
-                    icon='mail'
-                    component={ReduxFormTextInput}/>
-                  <Field
-                    name='password'
-                    placeholder='password'
-                    style={{}}
-                    size='large'
-                    type='password'
-                    icon='lock'
-                    component={ReduxFormTextInput}/>
-                </Div>
-              : <Div>
-                   <Helmet title= 'passwordReset'/>
-                  <Field
-                    name='email'
-                    placeholder='email'
-                    style={{}}
-                    size='large'
-                    type='email'
-                    icon='mail'
-                    component={ReduxFormTextInput}/>
-                </Div>}
-            <StyledError>
-              {authError}
-            </StyledError>
-            <div>
-              <Div3>
-                <StyledSubmitButton
-                  basic={true}
-                  onClick={handleSubmit(onSubmit)}>
-                  {route === 'signUp'
-                    ? 'Register'
-                    : route === 'signIn'
-                      ? 'Login'
-                      : route === 'passwordReset'
-                        ? 'Reset Password'
-                        : 'Submit'}{' '}
-                </StyledSubmitButton>
-                {route === 'signIn' || route === 'signUp'
-                  ? <Div3>
-                       <Helmet title= 'Auth'/>
-                      <Divider style={{width: '220px'}} horizontal={true}>
-                        Or
-                      </Divider>
-                      <Div2>
-                        <Button
-                          color='google plus'
-                          style={{textTransform: 'capitalize'}}
-                          onClick={() => {
-                            props.handleSignInWithGoogle()
-                          }}>
-                          <Icon name='google' /> Google
-                        </Button>
-                        <Button
-                          color='facebook'
-                          style={{textTransform: 'capitalize'}}
-                          onClick={() => {
-                            props.handleSignInWithFacebook()
-                          }}>
-                          <Icon name='facebook' /> Facebook
-                        </Button>
-                      </Div2>
-                    </Div3>
-                  : null}
-              </Div3>
-              {route === 'signIn'
-                ? <div>
-                    <P
+      {props.fetching ? (
+        <Loading />
+      ) : (
+        <Div>
+          {route !== 'passwordReset' ? (
+            <Div>
+              <Field
+                name='email'
+                placeholder='email'
+                style={{}}
+                size='large'
+                type='email'
+                icon='mail'
+                component={ReduxFormTextInput}/>
+              <Field
+                name='password'
+                placeholder='password'
+                style={{}}
+                size='large'
+                type='password'
+                icon='lock'
+                component={ReduxFormTextInput}/>
+            </Div>
+          ) : (
+            <Div>
+              <Helmet title='passwordReset' />
+              <Field
+                name='email'
+                placeholder='email'
+                style={{}}
+                size='large'
+                type='email'
+                icon='mail'
+                component={ReduxFormTextInput}/>
+            </Div>
+          )}
+          <StyledError>{authError}</StyledError>
+          <div>
+            <Div3>
+              <StyledSubmitButton basic={true} onClick={handleSubmit(onSubmit)}>
+                {route === 'signUp'
+                  ? 'Register'
+                  : route === 'signIn'
+                    ? 'Login'
+                    : route === 'passwordReset'
+                      ? 'Reset Password'
+                      : 'Submit'}{' '}
+              </StyledSubmitButton>
+              {route === 'signIn' || route === 'signUp' ? (
+                <Div3>
+                  <Helmet title='Auth' />
+                  <Divider style={{width: '220px'}} horizontal={true}>
+                    Or
+                  </Divider>
+                  <Div2>
+                    <Button
+                      color='google plus'
+                      style={{textTransform: 'capitalize'}}
                       onClick={() => {
-                        props.handlePasswordResetPress()
+                        props.handleSignInWithGoogle()
                       }}>
-                      forgot your password ?
-                    </P>
-                  </div>
-                : null}
-            </div>
-          </Div>}
+                      <Icon name='google' /> Google
+                    </Button>
+                    <Button
+                      color='facebook'
+                      style={{textTransform: 'capitalize'}}
+                      onClick={() => {
+                        props.handleSignInWithFacebook()
+                      }}>
+                      <Icon name='facebook' /> Facebook
+                    </Button>
+                  </Div2>
+                </Div3>
+              ) : null}
+            </Div3>
+            {route === 'signIn' ? (
+              <div>
+                <P
+                  onClick={() => {
+                    props.handlePasswordResetPress()
+                  }}>
+                  forgot your password ?
+                </P>
+              </div>
+            ) : null}
+          </div>
+        </Div>
+      )}
     </div>
   )
 }
@@ -141,31 +141,31 @@ const Div = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
-  `
+`
 const Div2 = styled('div')`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   /* max-width: 96vw; */
-  text-transform:capitalize;
-  `
+  text-transform: capitalize;
+`
 const Div3 = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
-  `
+`
 
 const P = styled('p')`
   cursor: pointer;
   text-align: center;
   margin-top: 2vh !important;
-  `
+`
 
 const StyledError = styled('p')`
-  color:tomato;
-  font-size:0.85em;
-  `
+  color: tomato;
+  font-size: 0.85em;
+`
 
 const StyledSubmitButton = styled(Button)`
   margin-bottom: 5vh !important;

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import * as ActionCreators from 'redux/modules/authentication'
 import {withRouter} from 'react-router-dom'
 import SecureHome from 'components/SecureHome'
+import PushNotificationContainer from 'containers/PushNotificationContainer'
 
 class SecureHomeContainer extends Component {
   static propTypes = {}
@@ -16,10 +17,13 @@ class SecureHomeContainer extends Component {
 
   render() {
     return (
-      <SecureHome
-        handleSignOutPress={() => {
-          this.handleSignOutPress()
-        }}/>
+      <div>
+        <SecureHome
+          handleSignOutPress={() => {
+            this.handleSignOutPress()
+          }}/>
+        <PushNotificationContainer />
+      </div>
     )
   }
 }

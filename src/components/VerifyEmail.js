@@ -33,12 +33,12 @@ export default function VerifyEmail(props) {
 
 const Div = styled('div')`
   width: 100%;
-  height:100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  `
+`
 
 VerifyEmail.propTypes = {}
 VerifyEmail.defaultProps = {}

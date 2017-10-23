@@ -23,28 +23,24 @@ export default class ReduxFormTextInput extends Component {
         <Form.Field
           required={rest.required || false}
           error={!!(hasError && touched)}>
-          <label>
-            {label || ''}
-          </label>
+          <label>{label || ''}</label>
           <input
             type={type ? type : 'text'}
             placeholder={rest.placeholder || ''}
             {...input}/>
         </Form.Field>
-        <P showError={hasError && touched}>
-          {error || 'error'}
-        </P>
+        <P showError={hasError && touched}>{error || 'error'}</P>
       </StyledForm>
     )
   }
 }
 
 const P = styled('p')`
-  color:tomato;
-  font-size:0.85em;
+  color: tomato;
+  font-size: 0.85em;
   visibility: ${props => (props.showError ? 'visible' : 'hidden')};
-  `
+`
 const StyledForm = styled(Form)`
-  width:420px;
+  width: 420px;
   max-width: 96vw !important;
-  `
+`

@@ -52,15 +52,15 @@ import {ConnectedRouter} from 'react-router-redux'
 
 async function init() {
   const store = await configureStore()
-  ReactDOM.render( 
-  <Provider store={store}>
-    {/* ConnectedRouter will use the store from Provider automatically */}
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
-  </Provider>,
-  document.getElementById('root')
-)
+  ReactDOM.render(
+    <Provider store={store}>
+      {/* ConnectedRouter will use the store from Provider automatically */}
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>,
+    document.getElementById('root')
+  )
 }
 
 init()

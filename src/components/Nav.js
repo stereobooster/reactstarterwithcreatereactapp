@@ -10,7 +10,8 @@ export default function Nav(props) {
       <StyledUl>
         <li>
           <StyledNavLink exact={true} to='/'>
-            {' '}Home
+            {' '}
+            Home
           </StyledNavLink>
         </li>
         <li>
@@ -20,44 +21,49 @@ export default function Nav(props) {
           <StyledNavLink to='/faq/'> FAQ</StyledNavLink>
         </li>
       </StyledUl>
-      {props.authed
-        ? <Div2>
-            <Popup
-              trigger={<StyledButton
-                  compact={true}
-                  circular={true}
-                  basic={true}
-                  icon='user circle'
-                  onClick={() => {
-                    props.handleSignOutPress()
-                  }}/>}
-              content='Sign-Out'
-            />
-          </Div2>
-        : <Div2>
-            <Popup
-              trigger={<StyledButton
-                  compact={true}
-                  circular={true}
-                  basic={true}
-                  icon='user circle'
-                  onClick={() => {
-                    props.handleSignInPress()
-                  }}/>}
-              content='Sign-In'
-            />
-            <Popup
-              trigger={<StyledButton
-                  compact={true}
-                  circular={true}
-                  basic={true}
-                  icon='add user'
-                  onClick={() => {
-                    props.handleSignUpPress()
-                  }}/>}
-              content='Register'
-            />
-          </Div2>}
+      {props.authed ? (
+        <Div2>
+          <Popup
+            trigger={<StyledButton
+                compact={true}
+                circular={true}
+                basic={true}
+                icon='user circle'
+                onClick={() => {
+                  props.handleSignOutPress()
+                }}/>
+            }
+            content='Sign-Out'
+          />
+        </Div2>
+      ) : (
+        <Div2>
+          <Popup
+            trigger={<StyledButton
+                compact={true}
+                circular={true}
+                basic={true}
+                icon='user circle'
+                onClick={() => {
+                  props.handleSignInPress()
+                }}/>
+            }
+            content='Sign-In'
+          />
+          <Popup
+            trigger={<StyledButton
+                compact={true}
+                circular={true}
+                basic={true}
+                icon='add user'
+                onClick={() => {
+                  props.handleSignUpPress()
+                }}/>
+            }
+            content='Register'
+          />
+        </Div2>
+      )}
     </Div>
   )
 }
@@ -71,7 +77,8 @@ const StyledUl = styled('ul')`
   & li {
     margin-right: 2vw;
     list-style: none;
-  }`
+  }
+`
 
 const StyledNavLink = styled(NavLink).attrs({
   activeClassName: 'navItemActive',
@@ -84,14 +91,14 @@ const StyledNavLink = styled(NavLink).attrs({
 const StyledButton = styled(Button)`
   /* width: 120px; */
   margin-right: 2vw !important;
-  `
+`
 
 const Div = styled('div')`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  `
+`
 
 const Div2 = styled('div')`
-    margin-right: 2vw;
-  `
+  margin-right: 2vw;
+`

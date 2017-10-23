@@ -13,6 +13,8 @@ class HomeContainer extends Component {
     this.state = {}
   }
 
+  componentDidMount() {}
+
   render() {
     return <Home />
   }

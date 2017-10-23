@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import {handleInAppMessages} from 'helpers/pushMessaging'
 
 // // USE THIS CONFIG FOR PRODUCTION DEPLOY
 export const config = {
@@ -22,3 +23,21 @@ export const database = firebase.database()
 export const firebaseAuth = firebase.auth()
 export const messaging = firebase.messaging()
 export const firebaseRef = firebase.database().ref()
+
+messaging.onMessage(payload => {
+  handleInAppMessages(payload)
+})
+
+// Callback fired if Instance ID token is updated.
+messaging.onTokenRefresh(() => {
+  messaging
+    .getToken()
+    .then(refreshedToken => {
+      console.log('Token refreshed.', refreshedToken)
+      // // // update in firebase database
+    })
+    .catch(err => {
+      console.log('Unable to retrieve refreshed token ', err)
+      // // // update in firebase database
+    })
+})

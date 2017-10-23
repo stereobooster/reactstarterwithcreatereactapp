@@ -20,4 +20,4 @@ const StyledDiv = styled('div')`
   opacity: 0.35;
   justify-content: center;
   align-items: center;
-  `
+`

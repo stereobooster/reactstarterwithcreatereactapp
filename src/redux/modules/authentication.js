@@ -76,7 +76,7 @@ export function setAuthType(authType) {
   }
 }
 
-export function setRehydrateCompleteFlag () {
+export function setRehydrateCompleteFlag() {
   return {
     type: REHYDRATE_COMPLETE,
   }

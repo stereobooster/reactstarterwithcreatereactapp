@@ -1,4 +1,4 @@
-import {firebaseAuth, firebaseRef} from 'config/constants'
+import {firebaseAuth, firebaseRef, messaging} from 'config/constants'
 import firebase from 'firebase'
 
 export function signInWithEmailPassword(email, password) {

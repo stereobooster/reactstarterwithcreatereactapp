@@ -66,7 +66,8 @@ class VerifyEmailContainer extends Component {
                 basic={true}
                 color='tomato'
                 inverted={true}>
-                {' '}Ok
+                {' '}
+                Ok
               </Button>
             </Modal.Actions>
           </Modal.Content>

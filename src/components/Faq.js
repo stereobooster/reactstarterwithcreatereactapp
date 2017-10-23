@@ -17,8 +17,8 @@ export default class Faq extends Component {
   render() {
     return (
       <Div>
-      <Helmet title= 'Faq'/>
-      Faq
+        <Helmet title='Faq' />
+        Faq
       </Div>
     )
   }
@@ -26,7 +26,7 @@ export default class Faq extends Component {
 
 const Div = styled('div')`
   width: 100%;
-  height:100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  `
+`
