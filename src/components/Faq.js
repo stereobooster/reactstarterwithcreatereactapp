@@ -11,7 +11,7 @@ export default class Faq extends Component {
   }
 
   componentWillMount() {
-    window.history.replaceState({}, 'Title', '/faqs/')
+    // window.history.replaceState({}, 'Title', '/faqs/')
   }
 
   render() {
