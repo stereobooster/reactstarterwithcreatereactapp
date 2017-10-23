@@ -31,8 +31,7 @@ export default function Nav(props) {
                 icon='user circle'
                 onClick={() => {
                   props.handleSignOutPress()
-                }}/>
-            }
+                }}/>}
             content='Sign-Out'
           />
         </Div2>
@@ -46,8 +45,7 @@ export default function Nav(props) {
                 icon='user circle'
                 onClick={() => {
                   props.handleSignInPress()
-                }}/>
-            }
+                }}/>}
             content='Sign-In'
           />
           <Popup
@@ -58,8 +56,7 @@ export default function Nav(props) {
                 icon='add user'
                 onClick={() => {
                   props.handleSignUpPress()
-                }}/>
-            }
+                }}/>}
             content='Register'
           />
         </Div2>

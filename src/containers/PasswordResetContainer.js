@@ -18,6 +18,7 @@ class PasswordResetContainer extends Component {
   }
   componentDidMount() {
     this.props.setAuthType('PasswordReset')
+    this.props.resetLoginError()
   }
   render() {
     return <AuthContainer />

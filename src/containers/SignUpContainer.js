@@ -18,6 +18,7 @@ class SignUpContainer extends Component {
   }
   componentDidMount() {
     this.props.setAuthType('SignUp')
+    this.props.resetLoginError()
   }
 
   render() {

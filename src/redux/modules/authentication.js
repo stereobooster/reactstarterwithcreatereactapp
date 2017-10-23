@@ -85,7 +85,8 @@ export function setRehydrateCompleteFlag() {
 export function handleAuthWithEmailPassword(email, password, type) {
   // console.warn('FETCHING FOR :', type)
   return async dispatch => {
-    if (email && password !== '') {
+    dispatch(resetLoginError())
+    if (email !== '' && password !== '') {
       dispatch(setFetching())
       if (type === 'SignUp') {
         try {
@@ -299,7 +300,9 @@ export function handlePasswordReset(email) {
   return dispatch => {
     dispatch(notAuthed())
     // logOut()
-    dispatch(setFetching())
+    dispatch(resetLoginError())
+    if (email !== '') {
+          dispatch(setFetching())
     return sendPasswordResetEmail(email)
       .then(() => {
         dispatch(resetLoginError())
@@ -330,6 +333,10 @@ export function handlePasswordReset(email) {
         }
         return false
       })
+    } else {
+      dispatch(loginError('Email is required.'))
+    }
+
   }
 }
 

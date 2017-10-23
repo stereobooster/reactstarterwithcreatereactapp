@@ -33,7 +33,7 @@ function Auth(props) {
   // IF using Input from 'native-base' use: secondInput.getRenderedComponent().refs.secondInput._root.focus()
   const urlPath = window.location.href.split('/')
   const route = urlPath[3] || props.authType
-
+  console.log('Form Invalid ?:', invalid )
   return (
     <div>
       {props.fetching ? (
@@ -75,7 +75,7 @@ function Auth(props) {
           <StyledError>{authError}</StyledError>
           <div>
             <Div3>
-              <StyledSubmitButton basic={true} onClick={handleSubmit(onSubmit)}>
+              <StyledSubmitButton disabled ={pristine || submitting} basic={true} onClick={handleSubmit(onSubmit)}>
                 {route === 'signUp'
                   ? 'Register'
                   : route === 'signIn'
@@ -177,11 +177,13 @@ const validate = (values, props) => {
   error.password = ''
   let ema = values.email
   let pw = values.password
-  if (values.email === undefined) {
+  if (values.email === undefined || values.email === '') {
+  	error.email = 'email is required'
     ema = ''
   }
-  if (values.password === undefined) {
+  if (values.password === undefined || values.password === '') {
     pw = ''
+    error.password = 'password is required'
   }
   if (ema.length < 7 && ema !== '') {
     error.email = 'too short'

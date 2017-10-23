@@ -1,5 +1,5 @@
 export function serviceWorkerCheck() {
-  if (('serviceWorker' in navigator && window.location.protocol === 'https:')) {
+  if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
     // Are Notifications supported in the service worker?
     if (
       !('showNotification' in ServiceWorkerRegistration.prototype) ||
