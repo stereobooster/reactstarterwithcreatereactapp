@@ -86,7 +86,7 @@ export function handleAuthWithEmailPassword(email, password, type) {
   // console.warn('FETCHING FOR :', type)
   return async dispatch => {
     dispatch(resetLoginError())
-    if (email !== '' && password !== '') {
+    if (email !== '' && password !== '' && (email.includes('@')) && password.length > 4  && email.length > 6) {
       dispatch(setFetching())
       if (type === 'SignUp') {
         try {
@@ -178,7 +178,6 @@ export function handleAuthWithEmailPassword(email, password, type) {
       }
     } else {
       dispatch(notAuthed())
-      dispatch(loginError('Both Fields are required!'))
       dispatch(resetFetching())
     }
   }
@@ -301,7 +300,7 @@ export function handlePasswordReset(email) {
     dispatch(notAuthed())
     // logOut()
     dispatch(resetLoginError())
-    if (email !== '') {
+    if (email !== '' && (email.includes('@') && email.length > 6) ) {
           dispatch(setFetching())
     return sendPasswordResetEmail(email)
       .then(() => {
@@ -334,7 +333,7 @@ export function handlePasswordReset(email) {
         return false
       })
     } else {
-      dispatch(loginError('Email is required.'))
+      dispatch(resetFetching())
     }
 
   }

@@ -33,7 +33,6 @@ function Auth(props) {
   // IF using Input from 'native-base' use: secondInput.getRenderedComponent().refs.secondInput._root.focus()
   const urlPath = window.location.href.split('/')
   const route = urlPath[3] || props.authType
-  console.log('Form Invalid ?:', invalid )
   return (
     <div>
       {props.fetching ? (
