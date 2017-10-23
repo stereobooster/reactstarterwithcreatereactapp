@@ -14,7 +14,7 @@
     "react-router-dom": "^4.1.2",
     "react-router-redux": "next",
     "react-router-transition": "^1.0.1",
-    "react-scripts": "1.0.11",
+    "react-scripts": "1.0.14",
     "redux": "^3.7.2",
     "redux-action-buffer": "^1.1.0",
     "redux-form": "^7.0.3",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
+    "build": "react-scripts build && react-snap && sw-precache --config=sw-precache-config.js && uglifyjs build/service-worker.js -o build/service-worker.js && uglifyjs build/firebase-messaging-sw.js -o build/firebase-messaging-sw.js",
     "serve": "serve -s build",
     "fix": "eslint --fix src/. || exit 0",
     "test": "react-scripts test --env=jsdom",
@@ -42,18 +42,16 @@
     "eslint-plugin-standard": "^3.0.1",
     "prettier": "^1.5.3",
     "prettier-eslint": "^6.4.2",
-    "react-snapshot": "next"
+    "react-snap": "^0.5.4",
+    "uglify-js": "^3.1.5"
   },
-  "reactSnapshot": {
+  "reactSnap": {
     "include": [
       "/",
-      "/aboutUs/",
       "/faq/",
       "/signIn/",
       "/signUp/",
       "/passwordReset/"
-    ],
-    "exclude": [],
-    "snapshotDelay": 800
+    ]
   }
 }

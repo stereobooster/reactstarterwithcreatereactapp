@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import {render as snapshotRender} from 'react-snapshot'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import {configureStore, history} from './redux/store'

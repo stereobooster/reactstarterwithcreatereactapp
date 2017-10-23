@@ -8,8 +8,8 @@ firebase.initializeApp({
   'messagingSenderId': '320874865933'
 })
 
-const messaging = firebase.messaging()
-messaging.setBackgroundMessageHandler(payload => {
+var messaging = firebase.messaging()
+messaging.setBackgroundMessageHandler(function (payload) {
   var notificationTitle = 'Default'
   var notificationOptions = {
     'body': 'Default message body.',
