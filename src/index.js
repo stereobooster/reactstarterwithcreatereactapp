@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 import {render as snapshotRender} from 'react-snapshot'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
@@ -50,10 +50,9 @@ import {ConnectedRouter} from 'react-router-redux'
 //      }
 // }
 
-
 async function init() {
-const store = await configureStore()
-snapshotRender( 
+  const store = await configureStore()
+  ReactDOM.render( 
   <Provider store={store}>
     {/* ConnectedRouter will use the store from Provider automatically */}
     <ConnectedRouter history={history}>
@@ -62,8 +61,7 @@ snapshotRender(
   </Provider>,
   document.getElementById('root')
 )
-
-registerServiceWorker()
 }
 
 init()
+registerServiceWorker()

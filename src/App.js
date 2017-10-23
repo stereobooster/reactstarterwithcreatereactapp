@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
-import {RouteTransition} from 'react-router-transition/lib/react-router-transition'
+import { AnimatedSwitch } from 'react-router-transition/lib/react-router-transition'
 import HomeContainer from 'containers/HomeContainer'
 import SecureHomeContainer from 'containers/SecureHomeContainer'
 import SignInContainer from 'containers/SignInContainer'
@@ -64,18 +64,11 @@ class App extends Component {
        {type: 'text/css', cssText: inputStyle},
        {type: 'text/css', cssText: modalStyle},
        {type: 'text/css', cssText: popupStyle}]}/>
-       <RouteTransition
-           pathname={this.props.location.pathname}
-           atEnter={{opacity: 0}}
-          atLeave={{opacity: 2}}
-          atActive={{opacity: 1}}
-          mapStyles={styles => {
-            if (styles.opacity > 1) {
-              return {display: 'none'}
-            }
-            return {opacity: styles.opacity}
-          }}>
-          <Switch key={location.key} location={location}>
+      <AnimatedSwitch
+    atEnter={{ opacity: 0 }}
+    atLeave={{ opacity: 0 }}
+    atActive={{ opacity: 1 }}
+    className='switch-wrapper'>
             <Route exact={true} path='/' component={HomeContainer} />
             <Route exact={true} path='/aboutUs' component={AboutUs} />
             <Route exact={true} path='/signIn' component={SignInContainer} />
@@ -90,8 +83,7 @@ class App extends Component {
               authedId={authedId}
               component={SecureHomeContainer}/>
             <Route render={() => <h2> Oops. Page not found. </h2>} />
-          </Switch>
-          </RouteTransition>
+          </AnimatedSwitch>
       </MainContainer>
     )
   }

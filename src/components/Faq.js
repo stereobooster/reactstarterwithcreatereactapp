@@ -10,13 +10,15 @@ export default class Faq extends Component {
     this.state = {}
   }
 
-  componentDidMount() {}
+  componentWillMount() {
+    window.history.replaceState({}, 'Title', '/faqs/')
+  }
 
   render() {
     return (
       <Div>
       <Helmet title= 'Faq'/>
-      FAQ
+      Faq
       </Div>
     )
   }
